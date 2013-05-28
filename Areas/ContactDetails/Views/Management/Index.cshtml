@@ -1,0 +1,31 @@
+﻿@model MvcApplication1.Areas.ContactDetails.Models.ContactDetails
+@{
+  ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "Management", FormMethod.Post, new { id = "frmContactDetails" }))
+{
+  @Html.EditorFor(model => model)
+  
+  <div class="editor-label">
+    @Html.Label("Home Phone")
+  </div>
+  <div class="editor-field">
+    @Html.EditorFor(model => model.HomePhone.CountryCode)
+  @Html.EditorFor(model => model.HomePhone.AreaCode)
+  @Html.EditorFor(model => model.HomePhone.PhoneNumber)
+  </div>
+  
+  <div class="editor-label">
+    @Html.Label("Cell Phone")
+  </div>
+  <div class="editor-field">
+    @Html.EditorFor(model => model.CellPhone.CountryCode)
+  @Html.EditorFor(model => model.CellPhone.AreaCode)
+  @Html.EditorFor(model => model.CellPhone.PhoneNumber)
+  </div>
+  
+  @Html.EditorFor(model => model.HomeAddress)
+
+  <input type="submit" value="Create" name="Command" id="btnCreate" />
+}
